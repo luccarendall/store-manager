@@ -7,7 +7,7 @@ const connection = require('../../../models/connection')
 const productModel = require('../../../models/productModel')
 
 
-describe('Verifica se a aplicação está funcionando corretamente', () => {
+describe('Verifica a camada modelo de Produtos', () => {
   describe('Verifica se a função getAll retorna um array com todos os produtos', () => {
      
     it('verifica se a função getAll retorna algum dado', async () => {

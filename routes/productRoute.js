@@ -10,6 +10,4 @@ productRoute.get('/', productController.getAll);
 // Buscando pelo ID (bit.ly/3CGljRp)
 productRoute.get('/:id', productController.getProductById);
 
-module.exports = {
-  productRoute,
-};
+module.exports = productRoute;

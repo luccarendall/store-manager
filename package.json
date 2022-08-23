@@ -14,7 +14,8 @@
     "debug": "nodemon --ignore coverage index.js",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx",
     "migration": "node -e \"require('./__tests__/_utils').runMigration()\"",
-    "seed": "node -e \"require('./__tests__/_utils').runSeed()\""
+    "seed": "node -e \"require('./__tests__/_utils').runSeed()\"",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -42,7 +43,7 @@
     "jest": "^26.4.1",
     "mocha": "^8.4.0",
     "mysql-import": "^5.0.21",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.19",
     "nyc": "^15.1.0",
     "sinon": "^11.1.1",
     "supertest": "^6.2.2"

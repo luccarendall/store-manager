@@ -26,3 +26,4 @@ describe('Verifica se a aplicação está funcionando corretamente', () => {
     })
   })
 })
+

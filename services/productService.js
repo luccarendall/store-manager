@@ -1,15 +1,15 @@
-const productsData = require('../models/productModel');
+const productData = require('../models/productModel');
 
 const getAll = async () => {
-  const products = await productsData.getAll();
+  const products = await productData.getAll();
   
   return products;
 };
 
 // bit.ly/3CGljRp
-const getProductById = async (ID) => {
-  const [products] = await productsData.getById(ID);
-  if (products.length === 0) return null && console.log('productsData vazio');
+const getProductById = async (id) => {
+  const [products] = await productData.getProductById(id);
+  if (!products || products.length === 0) return null && console.log('array vazio');
   return products;
 };
 

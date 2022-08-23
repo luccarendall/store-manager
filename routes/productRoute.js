@@ -7,6 +7,9 @@ const productRoute = express.Router();
 // Trazendo todos os produtos para a rota raiz
 productRoute.get('/', productController.getAll);
 
+// Buscando pelo ID (bit.ly/3CGljRp)
+productRoute.get('/:id', productController.getProductById);
+
 module.exports = {
   productRoute,
 };

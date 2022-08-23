@@ -6,9 +6,10 @@ const getAll = async () => {
   return products;
 };
 
+// bit.ly/3CGljRp
 const getProductById = async (ID) => {
   const [products] = await productsData.getById(ID);
-  if (products.length === 0) return null;
+  if (products.length === 0) return null && console.log('productsData vazio');
   return products;
 };
 

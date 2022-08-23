@@ -13,7 +13,7 @@ const getProductById = async (ID) => {
   // tabnine.com/code/javascript/functions/mysql/Connection/execute
   const query = 'SELECT * FROM products WHERE id = ?;';
   const [productsData] = await connection.execute(query, [ID]);
-  if (productsData.length === 0) return console.log('productsData vazio');
+  // if (productsData.length === 0) return console.log('productsData vazio');
   return productsData;
 };
 

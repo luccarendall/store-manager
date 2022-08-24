@@ -25,8 +25,18 @@ const createProduct = async (name) => {
   return createdProduct;
 };
 
+// https://bit.ly/3pJcqP0
+const updateProductInfo = async (name, id) => {
+  const productUpdated = await productData.updateProductInfo(name, id);
+  // if (!productUpdated) return false;
+  if (productUpdated.changedRows === 0) return false;
+  const productObj = { id, name };
+  return productObj;
+};
+
 module.exports = {
   getAll,
   getProductById,
   createProduct,
+  updateProductInfo,
 };

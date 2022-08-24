@@ -1,8 +1,5 @@
 const express = require('express');
 const productController = require('../controllers/productController');
-const errorMiddleware = require('../middlewares/errorMiddleware');
-
-const app = express();
 
 // expressjs.com/pt-br/guide/using-middleware.html
 const productRoute = express.Router();
@@ -15,8 +12,6 @@ productRoute.get('/:id', productController.getProductById);
 
 // Criando um novo autor
 productRoute.post('/', productController.createProduct);
-
-app.use(errorMiddleware);
 
 module.exports = {
   productRoute,

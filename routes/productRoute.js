@@ -13,6 +13,9 @@ productRoute.get('/', productController.getAll);
 // Buscando pelo ID (bit.ly/3CGljRp)
 productRoute.get('/:id', productController.getProductById);
 
+// Criando um novo autor
+productRoute.post('/', productController.createProduct);
+
 app.use(errorMiddleware);
 
 module.exports = {

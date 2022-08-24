@@ -18,9 +18,9 @@ const getProductById = async (id) => {
 };
 
 // https://bit.ly/3TqPLF5
-const createProduct = async (productName) => {
+const createProduct = async (name) => {
   const [newProduct] = await connection.execute(
-    'INSERT INTO products (productName) VALUES (?);', [productName],
+    'INSERT INTO products (name) VALUES (?);', [name],
   );
 
   return newProduct;

@@ -14,12 +14,12 @@ const getProductById = async (id) => {
 };
 
 // https://bit.ly/3TqPLF5
-const createProduct = async (productName) => {
-  const newProduct = await productData.createProduct(productName);
+const createProduct = async (name) => {
+  const newProduct = await productData.createProduct(name);
   
   const createdProduct = {
     id: newProduct.insertId,
-    productName,
+    name,
   };
   
   return createdProduct;

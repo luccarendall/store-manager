@@ -6,7 +6,6 @@ const connection = require('../../../models/connection')
 
 const productModel = require('../../../models/productModel')
 
-
 describe('Verifica a camada modelo de Produtos', () => {
   
   describe('Verifica se a função getAll retorna um array com todos os produtos', () => {
@@ -40,5 +39,4 @@ describe('Verifica a camada modelo de Produtos', () => {
       expect(data).to.be.a('object')
     })
   })
-
 })

@@ -22,4 +22,18 @@ describe('Verifica a camada de Serviços de Produtos', () => {
       expect(productData).not.to.be.empty;
     })
   })
+
+  describe('Verifica se é possível adicionar um novo produto', () => {
+    const newProduct = 'Harry Potter e o prisioneiro de Azkaban'
+
+    it('verifica se retorna algum dado', async () => {
+      const data = await productService.createProduct(newProduct)
+      expect(data).not.to.be.null;
+    })
+
+    it('verifica se retorna um objeto', async () => {
+      const data = await productService.createProduct(newProduct)
+      expect(data).to.be.a('object')
+    })
+  })
 }) 

@@ -26,17 +26,17 @@ describe('Verifica a camada modelo de Produtos', () => {
     })
   })
 
-  describe('Verifica se é possível adicionar um novo produto', () => {
-    const newProduct = 'Harry Potter e o prisioneiro de Azkaban'
+  // describe('Verifica se é possível adicionar um novo produto', () => {
+  //   const newProduct = 'Harry Potter e o prisioneiro de Azkaban'
 
-    it('verifica se retorna algum dado', async () => {
-      const data = await productModel.createProduct(newProduct)
-      expect(data).not.to.be.null;
-    })
+  //   it('verifica se retorna algum dado', async () => {
+  //     const data = await productModel.createProduct(newProduct)
+  //     expect(data).not.to.be.null;
+  //   })
 
-    it('verifica se retorna um objeto', async () => {
-      const data = await productModel.createProduct(newProduct)
-      expect(data).to.be.a('object')
-    })
-  })
+  //   it('verifica se retorna um objeto', async () => {
+  //     const data = await productModel.createProduct(newProduct)
+  //     expect(data).to.be.a('object')
+  //   })
+  // })
 })

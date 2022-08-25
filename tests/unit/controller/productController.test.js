@@ -6,37 +6,47 @@ const productController = require('../../../controllers/productController')
 
 describe('Verifica a camada de Controladores de Produtos', () => {
   describe('testa o controller de getAll ', () => {
-    const response = {}
-    const request = {}
+    const res = {}
+    const req = {}
 
     before(
       () => {
-        response.status = sinon
-          .stub().returns(response)
+        res.status = sinon
+          .stub().returns(res)
         
-        response.json = sinon
+        res.json = sinon
           .stub().returns()
     })
     
     it('Espera que o status seja OK', async () => {
-      await productController.getAll(request, response)
+      await productController.getAll(req, res)
 
-      expect(response.status.calledWith(200)).to.be.equal(true)
+      expect(res.status.calledWith(200)).to.be.equal(true)
     })
-
   })
 
-  // describe('Verifica se é possível adicionar um novo produto', () => {
-  //   const newProduct = 'Harry Potter e o prisioneiro de Azkaban'
+  describe('Testa o controller do getProductById em caso de erro', () => {
+    const res = {};
+    const req = {};
 
-  //   it('verifica se retorna algum dado', async () => {
-  //     const data = await productController.createProduct(newProduct)
-  //     expect(data).not.to.be.null;
-  //   })
+    before(() => {
+      req.params = { id: 1414 }
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns({ message: "Product not found" });
+    });
 
-  //   it('verifica se retorna um objeto', async () => {
-  //     const data = await productController.createProduct(newProduct)
-  //     expect(data).to.be.a('object')
-  //   })
-  // })
+    it('Verifica se retorna o status 404 (Not Found) ao realizar requisição em com um parâmetro inválido', async () => {
+      await productController.getProductById(req, res)
+      expect(res.status.calledWith(404)).to.be.equal(true)
+    })
+
+    it('Retorna a mensagem de erro "product not found" ao realizar requisição em com um parâmetro inválido', async () => {
+      await productController.getProductById(req, res)
+      expect(
+        res.json.calledWith(
+          { message: "Product not found" }
+        )
+      ).to.be.equal(true);
+    })
+  })
 })

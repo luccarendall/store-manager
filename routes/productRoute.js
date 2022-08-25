@@ -17,6 +17,9 @@ productRoute.put('/:id', validateID, validateName, productController.updateProdu
 // Criando um novo autor
 productRoute.post('/', productController.createProduct);
 
+// Deletando um produto
+productRoute.delete('/:id', productController.deleteProduct);
+
 module.exports = {
   productRoute,
 };

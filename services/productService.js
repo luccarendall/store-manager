@@ -25,7 +25,7 @@ const createProduct = async (name) => {
   return createdProduct;
 };
 
-// https://bit.ly/3pJcqP0
+// https://bit.ly/3dX0XZL
 const updateProductInfo = async (name, id) => {
   const productUpdated = await productData.updateProductInfo(name, id);
   // if (!productUpdated) return false;
@@ -34,9 +34,21 @@ const updateProductInfo = async (name, id) => {
   return productObj;
 };
 
+// https://mzl.la/3pK19OE
+// https://bit.ly/3pJcqP0
+const deleteProduct = async (id) => {
+  const productDeleted = await productData.deleteProduct(id);
+  if (productDeleted.affectedRows === 0) {
+    return false;
+  }
+  
+  return productDeleted;
+};
+
 module.exports = {
   getAll,
   getProductById,
   createProduct,
   updateProductInfo,
+  deleteProduct,
 };

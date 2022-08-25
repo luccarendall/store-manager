@@ -20,6 +20,4 @@ productRoute.post('/', productController.createProduct);
 // Deletando um produto
 productRoute.delete('/:id', productController.deleteProduct);
 
-module.exports = {
-  productRoute,
-};
+module.exports = productRoute;

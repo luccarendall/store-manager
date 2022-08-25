@@ -3,19 +3,23 @@ const connection = require('./connection');
 const getSalesAll = async () => {
   const [sales] = await connection.execute(
  `SELECT 
-    s.id AS sale_id, 
-    s.date AS sale_date, 
-    sp.product_id AS product_id, 
-    sp.quantity AS sales_quantity,
+    s.id AS saleId, 
+    s.date, 
+    sp.product_id AS productId, 
+    sp.quantity
+
   FROM 
     sales AS s
+
   INNER JOIN
     sales_products AS sp
-  WHERE
-    sale_id = sp.sale_id
+
+  WHERE 
+    s.id = sp.sale_id
+
   ORDER BY
-    sale_id ASC,
-    product_id ASC;`,
+    s.id ASC, 
+    sp.product_Id ASC;`,
   );
   
   return sales;
@@ -24,20 +28,22 @@ const getSalesAll = async () => {
 const getSalesById = async (id) => {
   const [sales] = await connection.execute(
   `SELECT 
-    s.id AS sale_id,  
-    s.date AS sale_date, 
-    sp.product_id AS AS product_id, 
-    sp.quantity AS sales_quantity,
-  FROM
+    s.date, 
+    sp.product_id AS productId, 
+    sp.quantity
+
+  FROM 
     sales AS s
+
   INNER JOIN
     sales_products AS sp 
-  ON sale_id = sp.sale_id 
-  WHERE 
-    sp.sale_id = ? 
+    ON s.id = sp.sale_id 
+    WHERE sp.sale_id = ? 
+
   ORDER BY 
-    sale_id , product_id;
-`, [id],
+    s.id, sp.product_id;
+`,
+    [id],
 );
 
   return sales;
@@ -45,5 +51,5 @@ const getSalesById = async (id) => {
 
 module.exports = {
   getSalesAll,
-  getSalesById,
+  getSalesById, 
 };

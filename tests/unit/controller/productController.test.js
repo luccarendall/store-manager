@@ -51,40 +51,4 @@ describe('Verifica a camada de Controladores de Produtos', () => {
       ).to.be.equal(true);
     })
   })
-
-  describe('Testa o controller createProduct', () => {
-    const res = {};
-    const req = {};
-    const productName = 'Harry Potter e o prisioneiro de Azkaban'
-    const data = {
-      id: 14,
-      name: 'Harry Potter e o prisioneiro de Azkaban',
-    };
-
-    before(
-      () => {
-      req.body = {
-          name: productName,
-        }
-      res.status = sinon.stub().returns(res)
-      res.json = sinon.stub().returns(data)
-    })
-
-    after(
-      () => {
-      sinon.restore()
-    })
-
-    it('Testa se retorna o status 201', async () => {
-      await productController.createProduct(req, res)
-      expect(res.status.calledWith(201)).to.be.equal(true)
-    })
-
-    it('Testa se o resultado retorna o nome do produto', async () => {
-      await productController.createProduct(req, res)
-
-      expect(res.json).to.have.property('name')
-      expect(res.json).to.have.property('id')
-    })
-  })
 })

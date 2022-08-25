@@ -37,7 +37,7 @@ const createProduct = async (req, res, next) => {
   return res.status(201).json(createdProduct);
 };
 
-const updateProductInfo = async (req, res, next) => {
+const updateProductInfo = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
 
@@ -46,7 +46,6 @@ const updateProductInfo = async (req, res, next) => {
   if (!updatedInfo) {
     return res.status(404).json(ERROR_404_NOT_FOUND);
   }
-  next();
 
   return res.status(200).json(updatedInfo);
 };

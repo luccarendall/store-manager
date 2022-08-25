@@ -1,8 +1,7 @@
 const express = require('express');
 const productController = require('../controllers/productController');
 const { validateID, validateName } = require('../middlewares/updateProductValidations');
-// const { validateName } = require('../middlewares/validations');
-// expressjs.com/pt-br/guide/using-middleware.html
+
 const productRoute = express.Router();
 
 // Trazendo todos os produtos para a rota raiz

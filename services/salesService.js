@@ -7,4 +7,5 @@ const getSalesAll = async () => {
 
 module.exports = {
   getSalesAll,
+  getSalesById,
 };

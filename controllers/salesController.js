@@ -7,4 +7,5 @@ const getSalesAll = async (_req, res) => {
 
 module.exports = {
   getSalesAll,
+  getSalesById,
 };

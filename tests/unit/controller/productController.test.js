@@ -27,7 +27,7 @@ describe('Verifica a camada de Controladores de Produtos', () => {
     })
   })
 
-  describe('Verifica o controller do getProductById', () => {
+  describe('Verifica o controller do getProductById com um parâmetro invalido', () => {
     const res = {};
     const req = {};
 
@@ -49,6 +49,33 @@ describe('Verifica a camada de Controladores de Produtos', () => {
           { message: "Product not found" }
         )
       ).to.be.equal(true);
+    })
+  })
+
+  describe('verifica o controller getProductById com um parâmetro válido', () => {
+    const res = {};
+    const req = {};
+    const dataCorrect = {
+      id: 3,
+      name: "Martelo do Thor",
+    };
+
+    const SUCESS_HTTP_STATUS_CODE = 200;
+
+    before(() => {
+      req.params = { id: 3 }
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns(dataCorrect);
+    })
+
+    it('Verifica se a função retorna o status de sucesso', async () => {
+      await productController.getProductById(req, res)
+      expect(res.status.calledWith(SUCESS_HTTP_STATUS_CODE)).to.be.equal(true)
+    })
+
+    it('Verifica se a função retorna o objeto esperado', async () => {
+      await productController.getProductById(req, res)
+      expect(res.json.calledWith(dataCorrect)).to.be.equal(true)
     })
   })
 })

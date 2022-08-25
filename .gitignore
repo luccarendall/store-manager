@@ -292,3 +292,5 @@ $RECYCLE.BIN/
 
 coverage
 .nyc*
+
+tests/unit/controller/controllerTests.test.js
